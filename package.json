@@ -14,7 +14,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf ./dist && rollup -c"
+    "prebuild": "rimraf ./dist",
+    "build": "npm run prebuild && rollup -c",
+    "release": "npm run build && npm publish"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
